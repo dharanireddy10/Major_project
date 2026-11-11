@@ -1,0 +1,18 @@
+# Windows shortcuts & desktop files
+*.lnk
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Software installers & heavy tool packages (exceeds GitHub limits)
+java_softwares/
+
+# Java & Maven build outputs
+**/target/
+*.class
+
+# Logs & temp files
+*.log
+*.tmp
+temp/
+logs/

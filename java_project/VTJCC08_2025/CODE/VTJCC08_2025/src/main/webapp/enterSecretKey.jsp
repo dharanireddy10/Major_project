@@ -1,0 +1,188 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page isELIgnored="false" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secret Key Access</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: url('images/cloud.jpg') no-repeat center center/cover;
+    padding-top: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+/* ================= HEADER ================= */
+.header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-title {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 12px 0;
+    background: rgba(0,0,0,0.7);
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+}
+
+.header-bar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.nav-title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* ================= MAIN CARD ================= */
+.container {
+    width: 90%;
+    max-width: 520px;
+    background: rgba(255,255,255,0.15);
+    padding: 40px 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0px 10px 40px rgba(0,0,0,0.5);
+    text-align: center;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity:0; transform: translateY(-30px); }
+    to { opacity:1; transform: translateY(0); }
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.info-text {
+    font-size: 14px;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* ================= FORM ================= */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    text-align: left;
+    font-size: 14px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    font-size: 15px;
+}
+
+input[readonly] {
+    cursor: not-allowed;
+}
+
+button {
+    background: linear-gradient(45deg, #8e44ad, #6c3483);
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(142,68,173,0.4);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(45deg, #6c3483, #512e5f);
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 13px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header-wrapper">
+    <div class="page-title">
+        SECURE KEYWORD SEARCH AND KEY MANAGEMENT SCHEME IN CLOUD ENVIRONMENTS
+    </div>
+    <div class="header-bar">
+        <div class="nav-title">Secret Key Access</div>
+    </div>
+</div>
+
+<!-- MAIN -->
+<div>
+<div class="container">
+    <h2>🔐 Approved Secret Key</h2>
+
+    <div class="info-text">
+        This secret key has been approved by the cloud authority. Use it to download the encrypted file.
+    </div>
+
+    <form action="VerifySecretKeyServlet" method="post">
+        <input type="hidden" name="keyword" value="${keyword}">
+        <input type="hidden" name="category" value="${category}">
+        <input type="hidden" name="original_key" value="${secret_key}">
+
+        <label>Secret Key</label>
+        <input type="text" name="entered_key" value="${secret_key}" readonly>
+
+        <button type="submit">Proceed to Download</button>
+    </form>
+</div>
+
+<div class="footer">© 2025 Cloud Security System</div>
+</div>
+
+</body>
+</html>
