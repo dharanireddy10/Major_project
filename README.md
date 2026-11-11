@@ -25,3 +25,4 @@ This project provides a secure multi-role system (Data Owner, Cloud Server, Data
 1. **Database:** Import `java_project/VTJCC08_2025/DATABASE/cc08.sql` into MySQL.
 2. **Build:** Run `mvn clean install` inside `java_project/VTJCC08_2025/CODE/VTJCC08_2025`.
 3. **Deploy:** Deploy the generated WAR file or run on Apache Tomcat.
+
